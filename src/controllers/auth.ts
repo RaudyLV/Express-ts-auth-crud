@@ -20,7 +20,7 @@ export const login = async(req: express.Request, res: express.Response) => {
       const expectedHash = authentication(user.authentication.salt, password);
 
       if(user.authentication.password !== expectedHash){
-        return res.sendStatus(40);
+        return res.sendStatus(400);
       }
 
       const salt = random();
